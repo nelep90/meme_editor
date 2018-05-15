@@ -9,7 +9,7 @@ if (isset($_GET['action'])){
         //require_once('controleur/affiche.php');
         //break;
         case 'generator':
-        require_once('controllers/generator.php');
+        require_once('controllers/control_generator.php');
             echo 'coucou le grand';
         break;
         default:
@@ -17,6 +17,6 @@ if (isset($_GET['action'])){
     
     }
 } else {
-    require_once('controleur/affiche.php');
+    require_once('controllers/control_generator.php');
 }
 

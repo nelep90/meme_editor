@@ -1,0 +1,54 @@
+.wrap-meme {
+    h1 {
+        color: $blue;
+        text-align: center;
+        font-size: 18px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        .pink {
+            color: $pink;
+            text-transform: uppercase;
+        }
+    }
+    .btn {
+        .btn-blue {
+            margin: 25px auto;
+            padding: 7px 15px;
+            text-transform: uppercase;
+            color: $white;
+            background-color: $blue;
+            border-radius: 20px;
+            border : none;
+        }
+    }
+    .picture-meme {
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    .carousel {
+        .carousel-inner {
+            .carousel-item {
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+        .carousel-control-next-icon {
+            background-image: url('../medias/arrow-right.png');
+            width: 20px;
+            height: 30px;
+            position: absolute;
+            right: 0;
+        }
+        .carousel-control-prev-icon {
+            background-image: url('../medias/arrow-left.png');
+            width: 20px;
+            height: 30px;
+            position: absolute;
+            left: 0;
+        }
+    }
+}
