@@ -1,9 +1,9 @@
 @font-face {
   font-family: "Lato-R";
-  src: url("../fonts/lato/Lato-Regular.ttf"); }
+  src: url("../font/lato/Lato-Regular.ttf"); }
 @font-face {
   font-family: "Lato-B";
-  src: url("../fonts/lato/Lato-Bold.ttf"); }
+  src: url("../font/lato/Lato-Bold.ttf"); }
 header {
   border-bottom: 1px solid #bf1e36;
   padding: 15px 0; }
@@ -82,6 +82,22 @@ header {
   .wrap-home .wrap-content .item-meme .link-img:hover .content-hover {
     opacity: 1; }
 
+@media (min-width: 768px) {
+  .wrap-home .background-home {
+    padding: 100px 0; }
+    .wrap-home .background-home h1 {
+      font-size: 26px; }
+    .wrap-home .background-home h2 {
+      font-size: 25px; } }
+@media (min-width: 999px) {
+  .wrap-home .background-home {
+    padding: 150px 0; }
+    .wrap-home .background-home h1 {
+      font-size: 36px; }
+    .wrap-home .background-home h2 {
+      font-size: 38px; }
+  .wrap-home .wrap-content h3 {
+    font-size: 27px; } }
 .wrap-meme h1 {
   color: #121d2c;
   text-align: center;
@@ -92,32 +108,22 @@ header {
   .wrap-meme h1 .pink {
     color: #bf1e36;
     text-transform: uppercase; }
-.wrap-meme .btn {
-  /*         .btn-blue {
-              margin: 25px auto;
-              padding: 7px 15px;
-              text-transform: uppercase;
-              color: $white;
-              background-color: $blue;
-              border-radius: 20px;
-              border: none;
-          } */ }
-  .wrap-meme .btn .label-file {
-    cursor: pointer;
-    color: #ffffff;
-    margin: 25px auto;
-    padding: 7px 40px;
-    text-transform: uppercase;
-    color: #ffffff;
-    background-color: #121d2c;
-    border-radius: 20px;
-    border: none;
-    font-family: 'Lato-R';
-    font-size: 18px; }
-  .wrap-meme .btn .label-file:hover {
-    color: #ffffff; }
-  .wrap-meme .btn .input-file {
-    display: none; }
+.wrap-meme .btn .label-file {
+  cursor: pointer;
+  color: #ffffff;
+  margin: 25px auto;
+  padding: 7px 60px;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: #121d2c;
+  border-radius: 20px;
+  border: none;
+  font-family: 'Lato-R';
+  font-size: 18px; }
+.wrap-meme .btn .label-file:hover {
+  color: #ffffff; }
+.wrap-meme .btn .input-file {
+  display: none; }
 .wrap-meme .picture-meme img {
   width: 100%;
   height: auto;
@@ -182,7 +188,7 @@ header {
   font-family: 'Lato-R';
   font-size: 18px;
   margin: 25px auto;
-  padding: 7px 40px;
+  padding: 7px 60px;
   text-transform: uppercase;
   color: #ffffff;
   background-color: #121d2c;
@@ -190,6 +196,8 @@ header {
   border: none; }
 
 @media (min-width: 999px) {
+  .wrap-meme h1 {
+    font-size: 25px; }
   .wrap-meme .owl-carousel .owl-nav .owl-prev {
     position: absolute;
     left: -30px;
@@ -198,9 +206,57 @@ header {
     position: absolute;
     right: -30px;
     top: 0; } }
-footer p {
-  font-size: 14px;
+.wrap-download h1 {
+  color: #121d2c;
+  text-align: center;
+  font-size: 18px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  font-family: 'Lato-R'; }
+  .wrap-download h1 .pink {
+    color: #bf1e36;
+    text-transform: uppercase; }
+.wrap-download .picture-meme img {
+  width: 100%;
+  height: auto;
+  border: 2px solid #121d2c; }
+.wrap-download .btn .btn-pink {
   font-family: 'Lato-R';
-  text-align: center; }
+  font-size: 18px;
+  margin: 25px auto 15px auto;
+  padding: 7px 60px;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: #bf1e36;
+  border-radius: 20px;
+  border: none; }
+.wrap-download .social-media {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px; }
+  .wrap-download .social-media p {
+    font-size: 18px;
+    font-family: 'Lato-R';
+    text-transform: uppercase;
+    margin: 0;
+    color: #121d2c; }
+  .wrap-download .social-media .ico-social {
+    margin-left: 15px; }
+    .wrap-download .social-media .ico-social .fab {
+      font-size: 20px;
+      padding-top: 4px;
+      color: #121d2c; }
+
+@media (min-width: 999px) {
+  .wrap-meme h1 {
+    font-size: 25px; } }
+footer {
+  border-top: 1px solid #121d2c;
+  padding-top: 30px; }
+  footer p {
+    font-size: 14px;
+    font-family: 'Lato-R';
+    text-align: center;
+    padding-bottom: 15px; }
 
 /*# sourceMappingURL=main.css.map */

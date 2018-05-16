@@ -10,13 +10,15 @@ if (isset($_GET['action'])){
         break;
         case 'generator':
         require_once('controllers/control_generator.php');
-            echo 'coucou le grand';
+        break;
+        case 'download':
+        require_once('controllers/control_download.php');
         break;
         default:
         require_once('error.html');
     
     }
 } else {
-    require_once('controllers/control_home.php');
+    require_once('controllers/control_download.php');
 }
 

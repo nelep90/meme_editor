@@ -68,3 +68,47 @@
         }
     }
 }
+
+
+@media (min-width: 768px) { 
+
+
+    .wrap-home {
+        .background-home {
+
+            padding: 100px 0;
+            h1 {
+                font-size: 26px;
+
+            }
+            h2 {
+
+                font-size: 25px;
+            }
+        }
+    }
+    
+ }
+
+@media (min-width: 999px) { 
+
+    .wrap-home {
+        .background-home {
+
+            padding: 150px 0;
+            h1 {
+                font-size: 36px;
+
+            }
+            h2 {
+
+                font-size: 38px;
+            }
+        }
+        .wrap-content {
+            h3 {
+                font-size: 27px;
+            }
+        }
+    }
+}

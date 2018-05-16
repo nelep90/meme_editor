@@ -1,0 +1,63 @@
+.wrap-download {
+    h1 {
+        color: $blue;
+        text-align: center;
+        font-size: 18px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        font-family: 'Lato-R';
+        .pink {
+            color: $pink;
+            text-transform: uppercase;
+        }
+    }
+    .picture-meme {
+        img {
+            width: 100%;
+            height: auto;
+            border : 2px solid $blue;
+        }
+    }
+    .btn {
+        .btn-pink {
+            font-family: 'Lato-R';
+            font-size: 18px;
+            margin: 25px auto 15px auto;
+            padding: 7px 60px;
+            text-transform: uppercase;
+            color: $white;
+            background-color: $pink;
+            border-radius: 20px;
+            border: none;
+        }
+    }
+    .social-media{
+        display : flex;
+        justify-content : center;
+        margin-bottom : 25px;
+        p{
+            font-size : 18px;
+            font-family: 'Lato-R';
+            text-transform : uppercase;
+            margin : 0;
+            color : $blue;
+        }
+        .ico-social {
+            margin-left : 15px;
+            .fab{
+                font-size : 20px;
+                padding-top : 4px;
+                color : $blue;
+            }
+        }
+    }
+}
+
+@media (min-width: 999px) {
+    .wrap-meme {
+        h1 {
+            font-size: 25px;
+        }
+
+    }
+}

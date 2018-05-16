@@ -13,21 +13,11 @@
         }
     }
     .btn {
-/*         .btn-blue {
-            margin: 25px auto;
-            padding: 7px 15px;
-            text-transform: uppercase;
-            color: $white;
-            background-color: $blue;
-            border-radius: 20px;
-            border: none;
-        } */
-
         .label-file {
             cursor: pointer;
             color: $white;
             margin: 25px auto;
-            padding: 7px 40px;
+            padding: 7px 60px;
             text-transform: uppercase;
             color: $white;
             background-color: $blue;
@@ -133,7 +123,7 @@
         font-family : 'Lato-R';
         font-size : 18px;
         margin: 25px auto;
-        padding: 7px 40px;
+        padding: 7px 60px;
         text-transform: uppercase;
         color: $white;
         background-color: $blue;
@@ -145,6 +135,9 @@
 @media (min-width: 999px) { 
 
      .wrap-meme {
+         h1{
+             font-size : 25px;
+         }
        
         .owl-carousel {
 
