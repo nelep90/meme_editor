@@ -1,5 +1,5 @@
 {% extends 'layout.html' %} {% block title %}
-<title>Céer un même - Meme G'</title>
+<title>Créer un même - Meme G'</title>
 {% endblock %} {% block content %}
 <section class="wrap-meme container">
     <div class="row justify-content-center">
@@ -9,48 +9,67 @@
                 <span class="pink">même</span>
             </h1>
         </div>
+        <div class="wrap-picture col-12 col-md-6">
+            <div class="row">
+                <div class="col-12">
+                    <div class="picture-meme">
+                        <img src="assets/img/upload/ane.jpg">
+                    </div>
 
-        <div class="col-12">
-            <div class="picture-meme">
-                <img src="assets/img/upload/ane.jpg">
-            </div>
-        </div>
-        <div class="col-12 btn">
-            <button class="btn-blue">
-                upload my picture</button>
-        </div>
-       
-        <div class="row">
-            <div class="owl-carousel owl-theme col-12">
-                <div class="item">
-                    <img src="assets/img/upload/ane.jpg">
-                </div>
-                <div class="item">
-                    <img src="assets/img/upload/ane.jpg">
-                </div>
-                <div class="item">
-                    <img src="assets/img/upload/ane.jpg">
-                </div>
-                <div class="item">
-                    <img src="assets/img/upload/ane.jpg">
-                </div>
 
+                </div>
+                <div class="col-12 btn">
+                    <label for="file" class="label-file">upload my picture</label>
+                    <input id="file" class="input-file" type="file">
+
+                </div>
             </div>
         </div>
-        <div class="form-text">
-            <div class="form-txt-1">
-                <input type="text" placeholder="Choix de texte 1" class="col-10" />
-                <button></button>
-                <button></button>
-            </div>
-            <div class="form-txt-2">
-                <input type="text" placeholder="Choix de texte 2" class="col-10" />
-                <button></button>
-                <button></button>
+        <div class="wrap-slide-btn col-11 col-md-5 offset-md-1">
+            <div class="row">
+                <div class="col-12">
+
+                    <div class="owl-carousel owl-theme">
+                        <div class="item">
+                            <img src="assets/img/upload/ane.jpg">
+                        </div>
+                        <div class="item">
+                            <img src="assets/img/upload/ane.jpg">
+                        </div>
+                        <div class="item">
+                            <img src="assets/img/upload/ane.jpg">
+                        </div>
+                        <div class="item">
+                            <img src="assets/img/upload/ane.jpg">
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="form-text col-12">
+                    <div class="form-txt-1 row">
+                        <div class="col-9">
+                            <input type="text" placeholder="Choix de texte 1" />
+                        </div>
+                        <div class="col-3 btn-color-txt">
+                            <input type="color" class="btn-color">
+                            <select class="slc-size"></select>
+
+                        </div>
+                    </div>
+                    <div class="form-txt-2 row">
+                        <div class="col-9">
+                            <input type="text" placeholder="Choix de texte 2" />
+                        </div>
+                        <div class="col-3 btn-color-txt">
+                            <input type="color" class="btn-color">
+                            <select class="slc-size"></select>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-blue">Télécharger</button>
             </div>
         </div>
-        <button class="btn btn-blue">Télécharger</button>
     </div>
 </section>
-
 {% endblock %}

@@ -5,60 +5,158 @@
         font-size: 18px;
         padding-top: 25px;
         padding-bottom: 25px;
+        font-family : 'Lato-R';
+
         .pink {
             color: $pink;
             text-transform: uppercase;
         }
     }
     .btn {
-        .btn-blue {
+        .label-file {
+            cursor: pointer;
+            color: $white;
             margin: 25px auto;
-            padding: 7px 15px;
+            padding: 7px 60px;
             text-transform: uppercase;
             color: $white;
             background-color: $blue;
             border-radius: 20px;
-            border : none;
+            border: none;
+            font-family : 'Lato-R';
+            font-size : 18px;
+        }
+        .label-file:hover {
+            color: $white;
+        }
+        
+        // et on masque le input
+        .input-file {
+            display: none;
         }
     }
     .picture-meme {
         img {
             width: 100%;
             height: auto;
+            border : 2px solid $blue;
         }
     }
-/*     .carousel {
-        .carousel-inner {
-            .carousel-item {
-                img {
-                    width: 100%;
-                    height: auto;
+    .owl-carousel {
+        .owl-dots {
+            display: none;
+        }
+        .owl-nav {
+            display : block;
+            font-size : 40px;
+            .owl-prev {
+                position: absolute;
+                left: -30px;
+                top: 30%;
+            }
+            .owl-next {
+                position: absolute;
+                right: -30px;
+                top: 30%;
+            }
+        }
+    }
+    .form-text {
+        margin: 30px auto;
+        font-family : 'Lato-R';
+        font-size : 18px;
+        .form-txt-1 {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+            
+            input {
+                border: none;
+                border-bottom: 1px solid $blue;
+                width : 100%;
+            }
+            ::placeholder {
+                color: $blue;
+                padding-left : 15px;
+            }
+            .btn-color-txt {
+                display: flex;
+                flex-direction: row;
+                
+                input[type=color] {
+                    border: none;
+                    width: 30px;
+                    height: 30px;
                 }
             }
         }
-        .carousel-control-next-icon {
-            background-image: url('../medias/arrow-right.png');
-            width: 20px;
-            height: 30px;
-            position: absolute;
-            right: 0;
-        }
-        .carousel-control-prev-icon {
-            background-image: url('../medias/arrow-left.png');
-            width: 20px;
-            height: 30px;
-            position: absolute;
-            left: 0;
-        }
-    } */
-    .owl-carousel{
-        .owl-stage-outer{
-            .owl-nav{
-
+        .form-txt-2 {
+            display: flex;
+            justify-content: space-around;
+            input {
+                border: none;
+                border-bottom: 1px solid $blue;
+                width : 100%;
             }
-            .owl-dots{
-                display : none;
+            ::placeholder {
+                color: $blue;
+                padding-left : 15px;
+            }
+            .btn-color-txt {
+                display: flex;
+                flex-direction: row;
+                input[type=color] {
+                    border: none;
+                    width: 30px;
+                    height: 30px;
+                }
+                .slc-size{
+                    background-image: url('../medias/ico-size.png');
+                    width : 30px;
+                    height : auto;
+                    
+                }
             }
         }
     }
+    .btn-blue {
+        font-family : 'Lato-R';
+        font-size : 18px;
+        margin: 25px auto;
+        padding: 7px 60px;
+        text-transform: uppercase;
+        color: $white;
+        background-color: $blue;
+        border-radius: 20px;
+        border: none;
+    }
 }
+
+@media (min-width: 999px) { 
+
+     .wrap-meme {
+         h1{
+             font-size : 25px;
+         }
+       
+        .owl-carousel {
+
+            .owl-nav {
+
+                .owl-prev {
+                    position: absolute;
+                    left: -30px;
+                    top: 0;
+                }
+                .owl-next {
+                    position: absolute;
+                    right: -30px;
+                    top: 0;
+                }
+            }
+        }
+      
+
+    } 
+ }
+
