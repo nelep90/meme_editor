@@ -5,12 +5,14 @@ class MemeGenerator{
     protected $topText;
     protected $bottomText;
     protected $fontSize;
+    protected $imageName;
 
     public function __construct($url, $topText, $bottomText,$fontSize){
         $this->image= $_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/upload/". $url;
         $this->topText=$topText;
         $this->bottomText=$bottomText; 
         $this->fontSize=$fontSize;
+        $this->imageName = $url;
     }
     public function generateMemeFromJPG()
     { 
@@ -26,11 +28,83 @@ class MemeGenerator{
 
             $xTopText = $imageWidth / 2 - $topTextSize / 2;
             imagettftext($img, $this->fontSize, 0, $xTopText, 50, $textcolor, 'Lato-Bold', $this->topText);
+        }
+        if (strlen($this->bottomText) > 0){
+            $bbox = imagettfbbox($this->fontSize, 0, 'Lato-Bold', $this->bottomText);
+            $bottomTextSize = $bbox[2] - $bbox[0];
+            $bottomTextHeight = $bbox[1] - $bbox[6];
+            $imageWidth = imagesx($img);
+            $imageHeight = imagesy($img);
+            $xBottomText = $imageWidth / 2 - $bottomTextSize / 2;
+            $yBottomText = $imageHeight - $bottomTextHeight - 20;
+            imagettftext($img, $this->fontSize, 0, $xBottomText, $yBottomText, $textcolor, 'Lato-Bold', $this->bottomText);
+        }
+        if ((strlen($this->topText) > 0) || (strlen($this->bottomText) > 0)){
+            if (!file_exists($_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/meme/meme_" . $this->imageName)){
+                imagejpeg($img, $_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/meme/meme_" . $this->imageName);
+        
+                imagedestroy($img);
+            } else {
+                $memeName = $this->findValidName(1);
+                imagejpeg($img, $_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/meme/meme_" . $memeName);
+        
+                imagedestroy($img);
+            }
+             
+        }              
+    }
+    public function generateMemeFromPNG()
+    { 
+        $img=imagecreatefrompng($this->image);
+        $img=$this->resize($img);
+        putenv('GDFONTPATH=' . realpath('.' . '/assets/font/'));
+        $textcolor = imagecolorallocate($img, 255, 255, 255);
 
-        }  
-        return $img;
+        if (strlen($this->topText) > 0){
+            $bbox = imagettfbbox($this->fontSize, 0, 'Lato-Bold', $this->topText);
+            $topTextSize = $bbox[2] - $bbox[0];
+            $imageWidth = imagesx($img);
 
-     
+            $xTopText = $imageWidth / 2 - $topTextSize / 2;
+            imagettftext($img, $this->fontSize, 0, $xTopText, 50, $textcolor, 'Lato-Bold', $this->topText);
+        }
+        if (strlen($this->bottomText) > 0){
+            $bbox = imagettfbbox($this->fontSize, 0, 'Lato-Bold', $this->bottomText);
+            $bottomTextSize = $bbox[2] - $bbox[0];
+            $bottomTextHeight = $bbox[1] - $bbox[6];
+            $imageWidth = imagesx($img);
+            $imageHeight = imagesy($img);
+            $xBottomText = $imageWidth / 2 - $bottomTextSize / 2;
+            $yBottomText = $imageHeight - $bottomTextHeight - 20;
+            imagettftext($img, $this->fontSize, 0, $xBottomText, $yBottomText, $textcolor, 'Lato-Bold', $this->bottomText);
+        }
+        if ((strlen($this->topText) > 0) || (strlen($this->bottomText) > 0)){
+            if (!file_exists($_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/meme/meme_" . $this->imageName)){
+                imagepng($img, $_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/meme/meme_" . $this->imageName);
+        
+                imagedestroy($img);
+            } else {
+                $memeName = $this->findValidName(1);
+                imagepng($img, $_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/meme/meme_" . $memeName);
+        
+                imagedestroy($img);
+            }
+             
+        }
+                     
+    }
+    // recursive Rules!!!!!
+    public function findValidName($number){
+        $path = $_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/meme/";
+        $arrayName = explode('.', $this->imageName);
+        $name = $arrayName[0];
+        $ext = "." . $arrayName[1];
+        if (file_exists($path . "meme_" . $name . $number . $ext)){
+            $number += 1;
+            return $this->findValidName($number);
+        } else {
+            return $name . $number . $ext;
+        }
     }
     public function resize($img)
     {
