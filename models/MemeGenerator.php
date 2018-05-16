@@ -48,5 +48,12 @@ class MemeGenerator{
        
     }
    
+   // fonts
+   $font1='font/asman.ttf';
+   $font2='font/Lato-Regular.ttf';
+   $font3='font/Lato-Bold.ttf';
+   $font4='font/Lato-Italic.ttf';
+   $font5='font/Lato-Light.ttf';
+
  
 }
