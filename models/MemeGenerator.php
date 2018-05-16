@@ -7,7 +7,7 @@ class MemeGenerator{
     protected $fontSize;
 
     public function __construct($url, $topText, $bottomText,$fontSize){
-        $this->image= $_SERVER["DOCUMENT_ROOT"]. "/meme_editor/assets/img/upload/". $url;
+        $this->image= $_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/upload/". $url;
         $this->topText=$topText;
         $this->bottomText=$bottomText; 
         $this->fontSize=$fontSize;
@@ -16,24 +16,21 @@ class MemeGenerator{
     { 
         $img=imagecreatefromjpeg($this->image);
         $img=$this->resize($img);
-        putenv('GDFONTPATH=' . realpath('assets/font'));
+        putenv('GDFONTPATH=' . realpath('.' . '/assets/font/'));
         $textcolor = imagecolorallocate($img, 255, 255, 255);
-        //imagettftext($img,50,0,300,20,$textcolor,"lato.ttf",$this->topText);  
-        // topText
+
         if (strlen($this->topText) > 0){
-            $bbox = imagettfbbox($this->fontSize, 0, 'lato.ttf', $this->topText);
+            $bbox = imagettfbbox($this->fontSize, 0, 'Lato-Bold', $this->topText);
             $topTextSize = $bbox[2] - $bbox[0];
             $imageWidth = imagesx($img);
+
             $xTopText = $imageWidth / 2 - $topTextSize / 2;
-            imagettftext($img, $this->fontSize, 0, $xTopText, 50, $textcolor, 'lato.ttf', $this->topText); 
+            imagettftext($img, $this->fontSize, 0, $xTopText, 50, $textcolor, 'Lato-Bold', $this->topText);
+
         }  
-        
+        return $img;
 
-     // Affichage de l'image
-        header('Content-type: image/jpeg');
-        imagejpeg($img);
-
-        imagedestroy($img);
+     
     }
     public function resize($img)
     {
@@ -47,13 +44,6 @@ class MemeGenerator{
 
        
     }
-   
-   // fonts
-   $font1='font/asman.ttf';
-   $font2='font/Lato-Regular.ttf';
-   $font3='font/Lato-Bold.ttf';
-   $font4='font/Lato-Italic.ttf';
-   $font5='font/Lato-Light.ttf';
 
  
 }
