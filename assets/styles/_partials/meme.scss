@@ -52,46 +52,22 @@
             border : 2px solid $blue;
         }
     }
-    /*     .carousel {
-        .carousel-inner {
-            .carousel-item {
-                img {
-                    width: 100%;
-                    height: auto;
-                }
-            }
-        }
-        .carousel-control-next-icon {
-            background-image: url('../medias/arrow-right.png');
-            width: 20px;
-            height: 30px;
-            position: absolute;
-            right: 0;
-        }
-        .carousel-control-prev-icon {
-            background-image: url('../medias/arrow-left.png');
-            width: 20px;
-            height: 30px;
-            position: absolute;
-            left: 0;
-        }
-    } */
     .owl-carousel {
         .owl-dots {
             display: none;
         }
         .owl-nav {
             display : block;
-            font-size : 60px;
+            font-size : 40px;
             .owl-prev {
                 position: absolute;
                 left: -30px;
-                top: 0;
+                top: 30%;
             }
             .owl-next {
                 position: absolute;
                 right: -30px;
-                top: 0;
+                top: 30%;
             }
         }
     }
@@ -168,7 +144,7 @@
 
 @media (min-width: 999px) { 
 
-/*     .wrap-meme {
+     .wrap-meme {
        
         .owl-carousel {
 
@@ -188,6 +164,6 @@
         }
       
 
-    } */
+    } 
  }
 

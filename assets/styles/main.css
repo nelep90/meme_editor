@@ -28,160 +28,122 @@ header {
         color: #ffffff;
         text-transform: uppercase; }
 
-.wrap-meme {
-  /*     .carousel {
-      .carousel-inner {
-          .carousel-item {
-              img {
-                  width: 100%;
-                  height: auto;
-              }
-          }
-      }
-      .carousel-control-next-icon {
-          background-image: url('../medias/arrow-right.png');
-          width: 20px;
-          height: 30px;
-          position: absolute;
-          right: 0;
-      }
-      .carousel-control-prev-icon {
-          background-image: url('../medias/arrow-left.png');
-          width: 20px;
-          height: 30px;
-          position: absolute;
-          left: 0;
-      }
-  } */ }
-  .wrap-meme h1 {
-    color: #121d2c;
-    text-align: center;
-    font-size: 18px;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    font-family: 'Lato-R';
-    font-size: 25px; }
-    .wrap-meme h1 .pink {
-      color: #bf1e36;
-      text-transform: uppercase; }
-  .wrap-meme .btn {
-    /*         .btn-blue {
-                margin: 25px auto;
-                padding: 7px 15px;
-                text-transform: uppercase;
-                color: $white;
-                background-color: $blue;
-                border-radius: 20px;
-                border: none;
-            } */ }
-    .wrap-meme .btn .label-file {
-      cursor: pointer;
-      color: #ffffff;
-      margin: 25px auto;
-      padding: 7px 40px;
-      text-transform: uppercase;
-      color: #ffffff;
-      background-color: #121d2c;
-      border-radius: 20px;
-      border: none;
-      font-family: 'Lato-R';
-      font-size: 18px; }
-    .wrap-meme .btn .label-file:hover {
-      color: #ffffff; }
-    .wrap-meme .btn .input-file {
-      display: none; }
-  .wrap-meme .picture-meme img {
-    width: 100%;
-    height: auto;
-    border: 2px solid #121d2c; }
-  .wrap-meme .owl-carousel .owl-dots {
-    display: none; }
-  .wrap-meme .owl-carousel .owl-nav {
-    display: block;
-    font-size: 60px; }
-    .wrap-meme .owl-carousel .owl-nav .owl-prev {
-      position: absolute;
-      left: -30px;
-      top: 0; }
-    .wrap-meme .owl-carousel .owl-nav .owl-next {
-      position: absolute;
-      right: -30px;
-      top: 0; }
-  .wrap-meme .form-text {
-    margin: 30px auto;
-    font-family: 'Lato-R';
-    font-size: 18px; }
-    .wrap-meme .form-text .form-txt-1 {
-      display: flex;
-      justify-content: space-around;
-      margin-bottom: 30px; }
-      .wrap-meme .form-text .form-txt-1 input {
-        border: none;
-        border-bottom: 1px solid #121d2c;
-        width: 100%; }
-      .wrap-meme .form-text .form-txt-1 ::placeholder {
-        color: #121d2c;
-        padding-left: 15px; }
-      .wrap-meme .form-text .form-txt-1 .btn-color-txt {
-        display: flex;
-        flex-direction: row; }
-        .wrap-meme .form-text .form-txt-1 .btn-color-txt input[type=color] {
-          border: none;
-          width: 30px;
-          height: 30px; }
-    .wrap-meme .form-text .form-txt-2 {
-      display: flex;
-      justify-content: space-around; }
-      .wrap-meme .form-text .form-txt-2 input {
-        border: none;
-        border-bottom: 1px solid #121d2c;
-        width: 100%; }
-      .wrap-meme .form-text .form-txt-2 ::placeholder {
-        color: #121d2c;
-        padding-left: 15px; }
-      .wrap-meme .form-text .form-txt-2 .btn-color-txt {
-        display: flex;
-        flex-direction: row; }
-        .wrap-meme .form-text .form-txt-2 .btn-color-txt input[type=color] {
-          border: none;
-          width: 30px;
-          height: 30px; }
-        .wrap-meme .form-text .form-txt-2 .btn-color-txt .slc-size {
-          background-image: url("../medias/ico-size.png");
-          width: 30px;
-          height: auto; }
-  .wrap-meme .btn-blue {
-    font-family: 'Lato-R';
-    font-size: 18px;
+.wrap-meme h1 {
+  color: #121d2c;
+  text-align: center;
+  font-size: 18px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  font-family: 'Lato-R';
+  font-size: 25px; }
+  .wrap-meme h1 .pink {
+    color: #bf1e36;
+    text-transform: uppercase; }
+.wrap-meme .btn {
+  /*         .btn-blue {
+              margin: 25px auto;
+              padding: 7px 15px;
+              text-transform: uppercase;
+              color: $white;
+              background-color: $blue;
+              border-radius: 20px;
+              border: none;
+          } */ }
+  .wrap-meme .btn .label-file {
+    cursor: pointer;
+    color: #ffffff;
     margin: 25px auto;
     padding: 7px 40px;
     text-transform: uppercase;
     color: #ffffff;
     background-color: #121d2c;
     border-radius: 20px;
-    border: none; }
+    border: none;
+    font-family: 'Lato-R';
+    font-size: 18px; }
+  .wrap-meme .btn .label-file:hover {
+    color: #ffffff; }
+  .wrap-meme .btn .input-file {
+    display: none; }
+.wrap-meme .picture-meme img {
+  width: 100%;
+  height: auto;
+  border: 2px solid #121d2c; }
+.wrap-meme .owl-carousel .owl-dots {
+  display: none; }
+.wrap-meme .owl-carousel .owl-nav {
+  display: block;
+  font-size: 40px; }
+  .wrap-meme .owl-carousel .owl-nav .owl-prev {
+    position: absolute;
+    left: -30px;
+    top: 30%; }
+  .wrap-meme .owl-carousel .owl-nav .owl-next {
+    position: absolute;
+    right: -30px;
+    top: 30%; }
+.wrap-meme .form-text {
+  margin: 30px auto;
+  font-family: 'Lato-R';
+  font-size: 18px; }
+  .wrap-meme .form-text .form-txt-1 {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px; }
+    .wrap-meme .form-text .form-txt-1 input {
+      border: none;
+      border-bottom: 1px solid #121d2c;
+      width: 100%; }
+    .wrap-meme .form-text .form-txt-1 ::placeholder {
+      color: #121d2c;
+      padding-left: 15px; }
+    .wrap-meme .form-text .form-txt-1 .btn-color-txt {
+      display: flex;
+      flex-direction: row; }
+      .wrap-meme .form-text .form-txt-1 .btn-color-txt input[type=color] {
+        border: none;
+        width: 30px;
+        height: 30px; }
+  .wrap-meme .form-text .form-txt-2 {
+    display: flex;
+    justify-content: space-around; }
+    .wrap-meme .form-text .form-txt-2 input {
+      border: none;
+      border-bottom: 1px solid #121d2c;
+      width: 100%; }
+    .wrap-meme .form-text .form-txt-2 ::placeholder {
+      color: #121d2c;
+      padding-left: 15px; }
+    .wrap-meme .form-text .form-txt-2 .btn-color-txt {
+      display: flex;
+      flex-direction: row; }
+      .wrap-meme .form-text .form-txt-2 .btn-color-txt input[type=color] {
+        border: none;
+        width: 30px;
+        height: 30px; }
+      .wrap-meme .form-text .form-txt-2 .btn-color-txt .slc-size {
+        background-image: url("../medias/ico-size.png");
+        width: 30px;
+        height: auto; }
+.wrap-meme .btn-blue {
+  font-family: 'Lato-R';
+  font-size: 18px;
+  margin: 25px auto;
+  padding: 7px 40px;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: #121d2c;
+  border-radius: 20px;
+  border: none; }
 
 @media (min-width: 999px) {
-  /*     .wrap-meme {
-         
-          .owl-carousel {
-  
-              .owl-nav {
-  
-                  .owl-prev {
-                      position: absolute;
-                      left: -30px;
-                      top: 0;
-                  }
-                  .owl-next {
-                      position: absolute;
-                      right: -30px;
-                      top: 0;
-                  }
-              }
-          }
-        
-  
-      } */ }
+  .wrap-meme .owl-carousel .owl-nav .owl-prev {
+    position: absolute;
+    left: -30px;
+    top: 0; }
+  .wrap-meme .owl-carousel .owl-nav .owl-next {
+    position: absolute;
+    right: -30px;
+    top: 0; } }
 
 /*# sourceMappingURL=main.css.map */
