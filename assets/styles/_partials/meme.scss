@@ -36,10 +36,29 @@
         }
     }
     .picture-meme {
+position : relative;
+        #data-1{
+            position : absolute;
+            top : 0;
+            text-align: center;
+            font-family: 'Lato-B';
+            font-size : 30px;
+            text-transform: uppercase;
+            width : 100%;
+        }
         img {
             width: 100%;
             height: auto;
             border : 2px solid $blue;
+        }
+        #data-2{
+            position : absolute;
+            bottom : 0;
+            text-align: center;
+            font-family: 'Lato-B';
+            font-size : 30px;
+            text-transform: uppercase;
+            width : 100%;
         }
     }
     .owl-carousel {
@@ -88,6 +107,12 @@
                     width: 30px;
                     height: 30px;
                 }
+                .slc-size{
+                    
+                    width : 30px;
+                    height : auto;
+                    
+                }
             }
         }
         .form-txt-2 {
@@ -111,7 +136,7 @@
                     height: 30px;
                 }
                 .slc-size{
-                    background-image: url('../medias/ico-size.png');
+                    
                     width : 30px;
                     height : auto;
                     

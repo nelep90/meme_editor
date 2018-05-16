@@ -19,6 +19,6 @@ if (isset($_GET['action'])){
     
     }
 } else {
-    require_once('controllers/control_download.php');
+    require_once('controllers/control_home.php');
 }
 
