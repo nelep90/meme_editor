@@ -27,7 +27,7 @@
             height: auto;
         }
     }
-    .carousel {
+/*     .carousel {
         .carousel-inner {
             .carousel-item {
                 img {
@@ -49,6 +49,16 @@
             height: 30px;
             position: absolute;
             left: 0;
+        }
+    } */
+    .owl-carousel{
+        .owl-stage-outer{
+            .owl-nav{
+
+            }
+            .owl-dots{
+                display : none;
+            }
         }
     }
 }
