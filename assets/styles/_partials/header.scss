@@ -4,6 +4,8 @@ header{
     .wrap-header{
     display : flex;
     justify-content: space-between;
+    font-family : 'Lato-R';
+    font-size : 18px;
 
     .logo{
         img{
@@ -18,11 +20,13 @@ header{
         padding-top : 7px;
         padding-bottom : 7px;
         margin-right : 20px;
+        text-align : center;
         
         a{
             text-decoration: none;
             color : $white;
             text-transform: uppercase;
+
 
         }
 

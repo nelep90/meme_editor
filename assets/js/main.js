@@ -8,13 +8,16 @@ $('.owl-carousel').owlCarousel({
     nav:true,
     responsive:{
         0:{
-            items:2
+            items:2,
+            nav : true
         },
         600:{
-            items:2
+            items:2,
+            nav : true
         },
         1000:{
-            items:4
+            items:4,
+            nav : true
         }
     }
 })
