@@ -3,9 +3,9 @@
 class Bddmanager
 {
     protected $bdd;
-    private $host = "127.0.0.1";
+    private $host = "localhost";
     private $login = "root";
-    private $password = "root";
+    private $password = "";
  
     public function __construct()
     {

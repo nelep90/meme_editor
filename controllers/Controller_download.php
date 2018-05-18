@@ -16,9 +16,11 @@ class Controller_download extends Controller{
 										$memeData['url'],
 										$memeData['topText'],
 										$memeData['bottomText'],
-										$memeData['textSize']),
+										$memeData['textSize'],
 										$memeData['textColor1'],
 										$memeData['textColor2']);
+		var_dump($memeGen);
+		die;
 		$idImage = $memeData['id'];
 		$testJpg = "/\.jpg$/";
 		$testPng = "/\.png$/";
