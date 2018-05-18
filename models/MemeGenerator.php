@@ -6,13 +6,19 @@ class MemeGenerator{
     protected $bottomText;
     protected $fontSize;
     protected $imageName;
+    protected $textColor1;
+    protected $textColor2;
+    protected $id;
 
-    public function __construct($url, $topText, $bottomText,$fontSize){
-        $this->image= $_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/upload/". $url;
-        $this->topText=$topText;
-        $this->bottomText=$bottomText; 
-        $this->fontSize=$fontSize;
+    public function __construct($id, $url, $topText, $bottomText, $fontSize, $textColor1, $textColor2){
+        $this->id = $id;
+        $this->image = $_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/upload/". $url;
+        $this->topText = $topText;
+        $this->bottomText = $bottomText; 
+        $this->fontSize = $fontSize;
         $this->imageName = $url;
+        $this->textColor1 = $textColor1;
+        $this->textColor2 = $textColor2;
     }
     public function generateMemeFromJPG()
     { 
@@ -44,11 +50,13 @@ class MemeGenerator{
                 imagejpeg($img, $_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/meme/meme_" . $this->imageName);
         
                 imagedestroy($img);
+                return 'meme_' . $this->imageName;
             } else {
                 $memeName = $this->findValidName(1);
                 imagejpeg($img, $_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/meme/meme_" . $memeName);
         
                 imagedestroy($img);
+                return 'meme_' . $memeName;
             }
              
         }              
@@ -83,11 +91,13 @@ class MemeGenerator{
                 imagepng($img, $_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/meme/meme_" . $this->imageName);
         
                 imagedestroy($img);
+                return 'meme_' . $this->imageName;
             } else {
                 $memeName = $this->findValidName(1);
                 imagepng($img, $_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/meme/meme_" . $memeName);
         
                 imagedestroy($img);
+                return 'meme_' . $memeName;
             }
              
         }

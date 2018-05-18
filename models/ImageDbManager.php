@@ -20,9 +20,10 @@ class ImageDbManager {
 	// @param url (str)
 	// Insert une nouvelle ligne correspondant à une nouvelle image dans la table "me_image"
 	public function create($url){
-		$req = $this->_db->prepare('INSERT INTO me_image (date_ajout, url) VALUES (NOW(), :url)'); 
+		$req = $this->_db->prepare('INSERT INTO ' . $this->_table . ' (date_ajout, url) VALUES (NOW(), :url)'); 
 		$req->bindParam('url', $url, PDO::PARAM_STR);
 		$req->execute();
+		return $this->_db->lastInsertId();
 	}
 	// @param url (string)
 	// test si un nom d'image(url) existe déja dans la table
@@ -42,5 +43,9 @@ class ImageDbManager {
 		$req = $this->_db->prepare('SELECT * FROM ' . $this->_table . ' ORDER BY date_ajout DESC');
 		$req->execute();
 		return $req->fetchAll(PDO::FETCH_ASSOC);
+	}
+	public function selectRandom(){
+		$req = $this->_db->query('SELECT * FROM '. $this->_table . ' ORDER BY rand() limit 1');
+		return $req->fetch(PDO::FETCH_ASSOC);
 	}
 }
