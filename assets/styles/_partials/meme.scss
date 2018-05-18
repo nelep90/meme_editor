@@ -64,8 +64,9 @@ position : relative;
     .owl-carousel {
         .item{
             img{
-                // max-height : 90px;
-                // width : auto;
+                min-height : 69px;
+                max-height : 70px;
+                object-fit: cover;
             }
         }
         .owl-dots {
@@ -77,12 +78,14 @@ position : relative;
             .owl-prev {
                 position: absolute;
                 left: -30px;
-                top: 30%;
+                top: 0;
+            
             }
             .owl-next {
                 position: absolute;
                 right: -30px;
-                top: 30%;
+                top: 0;
+            
             }
         }
     }
@@ -193,4 +196,31 @@ position : relative;
 
     } 
  }
+
+ @media (min-width: 767px) { 
+
+    .wrap-meme {
+        h1{
+            font-size : 25px;
+        }
+      
+       .owl-carousel {
+
+           .owl-nav {
+
+               .owl-prev {
+                   position: absolute;
+                   left: -30px;
+                   top : 0;
+               }
+               .owl-next {
+                   position: absolute;
+                   right: -30px;
+                   top : 0;
+               }
+           }
+       }
+
+   } 
+}
 

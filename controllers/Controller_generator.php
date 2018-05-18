@@ -23,9 +23,9 @@ class Controller_generator extends Controller{
 		// getList de image
 		$posts = $this->imageDb->listByDate();
 		$mainPicture = $this->imageDb->selectRandom();
-		var_dump($posts);
-		echo '<br>';
-		var_dump($mainPicture);
+		// var_dump($posts);
+		// echo '<br>';
+		// var_dump($mainPicture);
 		echo $this->twig->render('generator.html', array('posts' => $posts, 'mainPicture' => $mainPicture ));
 	}
 	// upload image client
