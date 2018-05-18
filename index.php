@@ -1,6 +1,5 @@
-
-
 <?php
+
 // config.
 function loadModel($classe)
 {
@@ -46,8 +45,9 @@ if (isset($_GET['action'])){
             $action->genereAndDownload();
         } elseif ((isset($_GET['memeId'])) && (isset($_GET['memeName']))){
             $action = new Controller_download();
-            $action->action_render($_GET['memeId']);
             $action->action_download($_GET['memeName']);
+            $action->action_render($_GET['memeId']);
+            
         }
         break;
         default:
