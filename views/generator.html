@@ -14,7 +14,7 @@
                 <div class="col-12">
                     <div class="picture-meme">
                         <div id="data-1"></div>
-                        <img src="assets/img/upload/ane.jpg">
+                        <img src="assets/img/upload/{{ mainPicture.url }}">
                         <div id="data-2"></div>
                     </div>
 
@@ -32,44 +32,40 @@
                 <div class="col-12">
 
                     <div class="owl-carousel owl-theme">
+                        {% for post in posts %}
                         <div class="item">
-                            <img src="assets/img/upload/ane.jpg">
+                            <a href="index.php?action=generator&id={{ post.id }}">
+                                <img src="assets/img/upload/{{ post.url }}">
+                            </a>
                         </div>
-                        <div class="item">
-                            <img src="assets/img/upload/ane.jpg">
-                        </div>
-                        <div class="item">
-                            <img src="assets/img/upload/ane.jpg">
-                        </div>
-                        <div class="item">
-                            <img src="assets/img/upload/ane.jpg">
-                        </div>
-
+                        {% endfor %}
                     </div>
 
                 </div>
-                <div class="form-text col-12">
+                <form action="index.php?action=download" method="POST" class="form-text col-12">
                     <div class="form-txt-1 row">
                         <div class="col-9">
-                            <input type="text" id="txt-1" placeholder="Choix de texte 1" />
+                            <input type="text" id="txt-1" placeholder="Choix de texte 1" name="topText" />
                         </div>
                         <div class="col-3 btn-color-txt">
-                            <input type="color" value="#121d2c" class="btn-color" id='color-1'>
-                            <select class="slc-size"></select>
+                            <input type="color" value="#121d2c" class="btn-color" id='color-1' name="textColor1">
+                            <select class="slc-size" name="textSize1"></select>
 
                         </div>
                     </div>
                     <div class="form-txt-2 row">
                         <div class="col-9">
-                            <input type="text" id="txt-2" placeholder="Choix de texte 2" />
+                            <input type="text" id="txt-2" placeholder="Choix de texte 2" name="bottomText" />
                         </div>
                         <div class="col-3 btn-color-txt">
-                            <input type="color"  value="#121d2c" class="btn-color">
-                            <select class="slc-size"></select>
+                            <input type="color" value="#121d2c" class="btn-color" id='color-2' name="textColor2">
+                            <select class="slc-size" name="textSize2"></select>
                         </div>
                     </div>
-                </div>
-                <button type="submit" class="btn btn-blue">Télécharger</button>
+                    <input type="hidden" name="url" value="{{ mainPicture.url }}" />
+                    <input type="hidden" name="id" value="{{ mainPicture.id }}" />
+                    <button type="submit" class="btn btn-blue">Télécharger</button>
+                </form>
             </div>
         </div>
     </div>

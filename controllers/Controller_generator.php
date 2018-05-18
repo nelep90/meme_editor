@@ -26,7 +26,7 @@ class Controller_generator extends Controller{
 		var_dump($posts);
 		echo '<br>';
 		var_dump($mainPicture);
-		echo $this->twig->render('generator.html', array(''));
+		echo $this->twig->render('generator.html', array('posts' => $posts, 'mainPicture' => $mainPicture ));
 	}
 	// upload image client
 	public function action_upload(){

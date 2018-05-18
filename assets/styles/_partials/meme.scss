@@ -62,6 +62,12 @@ position : relative;
         }
     }
     .owl-carousel {
+        .item{
+            img{
+                // max-height : 90px;
+                // width : auto;
+            }
+        }
         .owl-dots {
             display: none;
         }
@@ -143,18 +149,21 @@ position : relative;
                 }
             }
         }
+        .btn-blue {
+            font-family : 'Lato-R';
+            font-size : 18px;
+            margin: 25px auto;
+            padding: 7px 60px;
+            text-transform: uppercase;
+            color: $white;
+            background-color: $blue;
+            border-radius: 20px;
+            border: none;
+            display : flex;
+            justify-content : center;
+        }
     }
-    .btn-blue {
-        font-family : 'Lato-R';
-        font-size : 18px;
-        margin: 25px auto;
-        padding: 7px 60px;
-        text-transform: uppercase;
-        color: $white;
-        background-color: $blue;
-        border-radius: 20px;
-        border: none;
-    }
+
 }
 
 @media (min-width: 999px) { 

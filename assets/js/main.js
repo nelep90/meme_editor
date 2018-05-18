@@ -42,20 +42,38 @@ txt1.addEventListener('keydown', (event) => {
 
 
 var color1 = document.getElementById('color-1');
-var data1 = document.getElementById('data-1');
+var color2 = document.getElementById('color-2');
+// var data1 = document.getElementById('data-1');
 
 var defaultColor = "#121d2c";
 
-window.addEventListener("load", startup, false);
-function startup() {
+window.addEventListener("load", startup1, false);
+function startup1() {
   color1.value = defaultColor;
-  color1.addEventListener("input", updateFirst, false);
+  color1.addEventListener("input", updateFirst1, false);
   color1.select();
+  
 }
-function updateFirst(event) {
-  var data1 = document.getElementById('data-1');
+function updateFirst1(event) {
+//   var data1 = document.getElementById('data-1');
 
   if (data1) {
     data1.style.color = event.target.value;
   }
 }
+
+window.addEventListener("load", startup2, false);
+function startup2() {
+  color2.value = defaultColor;
+  color2.addEventListener("input", updateFirst2, false);
+  color2.select();
+  
+}
+function updateFirst2(event) {
+//   var data1 = document.getElementById('data-1');
+
+  if (data2) {
+    data2.style.color = event.target.value;
+  }
+}
+

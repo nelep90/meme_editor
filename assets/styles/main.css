@@ -205,16 +205,18 @@ header {
       .wrap-meme .form-text .form-txt-2 .btn-color-txt .slc-size {
         width: 30px;
         height: auto; }
-.wrap-meme .btn-blue {
-  font-family: 'Lato-R';
-  font-size: 18px;
-  margin: 25px auto;
-  padding: 7px 60px;
-  text-transform: uppercase;
-  color: #ffffff;
-  background-color: #121d2c;
-  border-radius: 20px;
-  border: none; }
+  .wrap-meme .form-text .btn-blue {
+    font-family: 'Lato-R';
+    font-size: 18px;
+    margin: 25px auto;
+    padding: 7px 60px;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #121d2c;
+    border-radius: 20px;
+    border: none;
+    display: flex;
+    justify-content: center; }
 
 @media (min-width: 999px) {
   .wrap-meme h1 {
