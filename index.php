@@ -44,6 +44,10 @@ if (isset($_GET['action'])){
                             'id' => $_POST['id']];
             $action = new Controller_download($memeData);
             $action->genereAndDownload();
+        } elseif ((isset($_GET['memeId'])) && (isset($_GET['memeName']))){
+            $action = new Controller_download();
+            $action->action_render($_GET['memeId']);
+            $action->action_download($_GET['memeName']);
         }
         break;
         default:
