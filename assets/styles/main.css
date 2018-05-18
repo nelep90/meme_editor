@@ -137,7 +137,7 @@ header {
     width: 100%; }
   .wrap-meme .picture-meme img {
     width: 100%;
-    height: auto;
+    max-height: auto;
     border: 2px solid #121d2c; }
   .wrap-meme .picture-meme #data-2 {
     position: absolute;
@@ -181,14 +181,28 @@ header {
       padding-left: 15px; }
     .wrap-meme .form-text .form-txt-1 .btn-color-txt {
       display: flex;
-      flex-direction: row; }
-      .wrap-meme .form-text .form-txt-1 .btn-color-txt input[type=color] {
+      flex-direction: row;
+      padding: 0; }
+      .wrap-meme .form-text .form-txt-1 .btn-color-txt input {
         border: none;
         width: 30px;
-        height: 30px; }
+        height: 30px;
+        background-color: transparent;
+        padding: 0; }
       .wrap-meme .form-text .form-txt-1 .btn-color-txt .slc-size {
-        width: 30px;
-        height: auto; }
+        width: 50px;
+        height: auto;
+        font-family: 'Lato-R';
+        font-size: 13px;
+        border: none;
+        background-color: transparent;
+        color: #bf1e36;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 1px;
+        text-overflow: ''; }
+      .wrap-meme .form-text .form-txt-1 .btn-color-txt select::-ms-expand {
+        display: none; }
   .wrap-meme .form-text .form-txt-2 {
     display: flex;
     justify-content: space-around; }
@@ -201,14 +215,28 @@ header {
       padding-left: 15px; }
     .wrap-meme .form-text .form-txt-2 .btn-color-txt {
       display: flex;
-      flex-direction: row; }
-      .wrap-meme .form-text .form-txt-2 .btn-color-txt input[type=color] {
+      flex-direction: row;
+      padding: 0; }
+      .wrap-meme .form-text .form-txt-2 .btn-color-txt input {
         border: none;
         width: 30px;
-        height: 30px; }
+        height: 30px;
+        background-color: transparent;
+        padding: 0; }
       .wrap-meme .form-text .form-txt-2 .btn-color-txt .slc-size {
-        width: 30px;
-        height: auto; }
+        width: 50px;
+        height: auto;
+        font-family: 'Lato-R';
+        font-size: 13px;
+        border: none;
+        background-color: transparent;
+        color: #bf1e36;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 1px;
+        text-overflow: ''; }
+      .wrap-meme .form-text .form-txt-2 .btn-color-txt select::-ms-expand {
+        display: none; }
   .wrap-meme .form-text .btn-blue {
     font-family: 'Lato-R';
     font-size: 18px;
@@ -304,6 +332,13 @@ footer {
     font-size: 14px;
     font-family: 'Lato-R';
     text-align: center;
-    padding-bottom: 15px; }
+    padding-bottom: 15px;
+    margin: auto; }
+
+body {
+  position: relative; }
+
+main {
+  min-height: 75vh; }
 
 /*# sourceMappingURL=main.css.map */

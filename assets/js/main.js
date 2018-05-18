@@ -29,12 +29,12 @@ var data2 = document.getElementById('data-2');
 
 
 
-txt1.addEventListener('keydown', (event) => {
+txt1.addEventListener('keyup', (event) => {
 
         data1.innerHTML = txt1.value;
   });
 
-  txt2.addEventListener('keydown', (event) => {
+  txt2.addEventListener('keyup', (event) => {
 
     data2.innerHTML = txt2.value;
 
@@ -77,3 +77,37 @@ function updateFirst2(event) {
   }
 }
 
+
+function changeSize(){
+
+  var select1 = document.getElementById("select-1").value;
+  if(select1 == "value1")
+        {
+              data1.style.fontSize="30pt";
+        }
+        if(select1 == "value2")
+        {
+              data1.style.fontSize="10pt";
+        }
+        if(select1 == "value3")
+        {
+              data1.style.fontSize="50pt";
+        }
+}
+
+function changeSize2(){
+
+  var select2 = document.getElementById("select-2").value;
+  if(select2 == "value1")
+        {
+              data2.style.fontSize="30pt";
+        }
+        if(select2 == "value2")
+        {
+              data2.style.fontSize="10pt";
+        }
+        if(select2 == "value3")
+        {
+              data2.style.fontSize="50pt";
+        }
+}
