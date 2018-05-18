@@ -15,7 +15,7 @@ class MemeGenerator{
         $this->image = $_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/upload/". $url;
         $this->topText = $topText;
         $this->bottomText = $bottomText; 
-        $this->fontSize = $fontSize;
+        $this->fontSize = (int)$fontSize;
         $this->imageName = $url;
         $this->textColor1 = $textColor1;
         $this->textColor2 = $textColor2;

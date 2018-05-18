@@ -25,7 +25,7 @@ if (isset($_GET['action'])){
         break;
         case 'download':
         require_once('controllers/Controller_download.php');
-        var_dump($_POST);
+
         if ((isset($_POST['topText'])) 
             && (isset($_POST['bottomText'])) 
                 && (isset($_POST['textColor1'])) 
@@ -34,7 +34,7 @@ if (isset($_GET['action'])){
                             && (isset($_POST['textColor2']))
                                 && (isset($_POST['id'])))
         {
-            echo 'coucou';
+            
             $memeData = [ 'topText' => $_POST['topText'],
                             'bottomText' => $_POST['bottomText'],
                             'textColor1' => $_POST['textColor1'],
@@ -43,6 +43,7 @@ if (isset($_GET['action'])){
                             'url' => $_POST['url'],
                             'id' => $_POST['id']];
             $action = new Controller_download($memeData);
+            $action->genereAndDownload();
         }
         break;
         default:
