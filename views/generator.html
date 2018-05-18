@@ -59,9 +59,13 @@
                         </div>
                         <div class="col-3 btn-color-txt">
                             <input type="color" value="#121d2c" class="btn-color" id='color-2' name="textColor2">
-                            <select class="slc-size" name="textSize2"></select>
+                            {# <select class="slc-size" name="textSize2">
+
+                            </select> #}
                         </div>
                     </div>
+                    <input type="hidden" name="textSize" value=""/>
+
                     <input type="hidden" name="url" value="{{ mainPicture.url }}" />
                     <input type="hidden" name="id" value="{{ mainPicture.id }}" />
                     <button type="submit" class="btn btn-blue">Télécharger</button>
