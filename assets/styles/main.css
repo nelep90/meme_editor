@@ -258,16 +258,21 @@ header {
   width: 100%;
   height: auto;
   border: 2px solid #121d2c; }
-.wrap-download .btn .btn-pink {
-  font-family: 'Lato-R';
-  font-size: 18px;
-  margin: 25px auto 15px auto;
-  padding: 7px 60px;
-  text-transform: uppercase;
-  color: #ffffff;
-  background-color: #bf1e36;
-  border-radius: 20px;
-  border: none; }
+.wrap-download .glob-btn {
+  display: flex;
+  justify-content: center; }
+  .wrap-download .glob-btn .btn-pink {
+    font-family: 'Lato-R';
+    font-size: 18px;
+    margin: 25px auto 15px auto;
+    padding: 7px 60px;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #bf1e36;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    display: inline-block; }
 .wrap-download .social-media {
   display: flex;
   justify-content: center;

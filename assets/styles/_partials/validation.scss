@@ -15,10 +15,12 @@
         img {
             width: 100%;
             height: auto;
-            border : 2px solid $blue;
+            border: 2px solid $blue;
         }
     }
-    .btn {
+    .glob-btn {
+        display: flex;
+        justify-content: center;
         .btn-pink {
             font-family: 'Lato-R';
             font-size: 18px;
@@ -29,25 +31,27 @@
             background-color: $pink;
             border-radius: 20px;
             border: none;
+            cursor: pointer;
+            display: inline-block;
         }
     }
-    .social-media{
-        display : flex;
-        justify-content : center;
-        margin-bottom : 25px;
-        p{
-            font-size : 18px;
+    .social-media {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 25px;
+        p {
+            font-size: 18px;
             font-family: 'Lato-R';
-            text-transform : uppercase;
-            margin : 0;
-            color : $blue;
+            text-transform: uppercase;
+            margin: 0;
+            color: $blue;
         }
         .ico-social {
-            margin-left : 15px;
-            .fab{
-                font-size : 20px;
-                padding-top : 4px;
-                color : $blue;
+            margin-left: 15px;
+            .fab {
+                font-size: 20px;
+                padding-top: 4px;
+                color: $blue;
             }
         }
     }
@@ -58,6 +62,5 @@
         h1 {
             font-size: 25px;
         }
-
     }
 }
