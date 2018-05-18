@@ -44,12 +44,12 @@ class Controller_download extends Controller{
 		echo $this->twig->render('validation.html', array('meme' => $memeToLayout));
 
 	}
-	public function action_download(){
+	public function action_download($memeName){
         
 		header("Content-Type: application/force-download");
 		header("Content-Type: application/octet-stream");
 		header("Content-Type: application/download");
-		header("Content-Disposition: attachment; filename=\"$file_name\"");
+		header("Content-Disposition: attachment; filename=../assets/img/meme/" . $memeName);
 		header("Pragma: public");
 		header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 	}
