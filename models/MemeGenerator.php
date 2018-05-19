@@ -13,8 +13,8 @@ class MemeGenerator{
     public function __construct($id, $url, $topText, $bottomText, $fontSize, $textColor1, $textColor2){
         $this->id = $id;
         $this->image = $_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/upload/". $url;
-        $this->topText = $topText;
-        $this->bottomText = $bottomText; 
+        $this->topText = strtoupper($topText);
+        $this->bottomText = strtoupper($bottomText); 
         $this->fontSize = (int)$fontSize;
         $this->imageName = $url;
         $this->textColor1 = $textColor1;

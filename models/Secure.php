@@ -2,7 +2,8 @@
 class Secure{
 
 	public static function html($string){
-		$traitement = htmlentities($string);
+		$tratement = utf8_encode($string);
+		$traitement = htmlspecialchars($string);
 		return trim($traitement);
 	}
 }
