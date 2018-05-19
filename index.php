@@ -42,6 +42,7 @@ if (isset($_GET['action'])){
             }
         }
         break;
+        // Page download
         case 'download':
         require_once('controllers/Controller_download.php');
                 // bidouille pour fix quand taille non selectionnée
@@ -75,6 +76,11 @@ if (isset($_GET['action'])){
             $action = new Controller_download();
             $action->action_download($_GET['memeName']);
             $action->action_render($_GET['memeId']);
+                // route vers affichage avant download sans generate
+        } elseif (isset($_GET['id'])){
+            $action = new Controller_download();
+            $action = action_render($_GET['id']);
+            // index.php?action=download&id={{ post.id }}
         }
         break;
         default:
