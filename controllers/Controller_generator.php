@@ -18,11 +18,16 @@ class Controller_generator extends Controller{
 		$this->imageDb = new ImageDbManager();
 		
 	}	
-	public function action_layout(){
+	public function action_layout($id=null){
 		// random image sauf précisé(après sélection ou upload)
 		// getList de image
 		$posts = $this->imageDb->listByDate();
-		$mainPicture = $this->imageDb->selectRandom();
+		if ($id === null){
+			$mainPicture = $this->imageDb->selectRandom();
+		} else {
+			$mainPicture = $this->imageDb->read($id);
+		}
+		
 		// var_dump($posts);
 		// echo '<br>';
 		// var_dump($mainPicture);

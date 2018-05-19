@@ -16,11 +16,20 @@ if (isset($_GET['action'])){
     switch ($_GET['action']) { 
         
     //routeur
+        // Page d'accueil
         case 'home':
         require_once('controllers/control_home.php');
         break;
         case 'generator':
         require_once('controllers/Controller_generator.php');
+        if ((isset($_GET['id'])) && (!empty($_GET['id']))){
+            $id = (int)$_GET['id'];
+            $action = new Controller_generator();
+            $action->action_layout($id);
+        } else {
+            $action = new Controller_generator();
+            $action->action_layout();
+        }
         break;
         case 'download':
         require_once('controllers/Controller_download.php');
@@ -47,7 +56,6 @@ if (isset($_GET['action'])){
             $action = new Controller_download();
             $action->action_download($_GET['memeName']);
             $action->action_render($_GET['memeId']);
-            
         }
         break;
         default:
