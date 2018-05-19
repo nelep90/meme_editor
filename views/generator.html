@@ -20,11 +20,14 @@
 
 
                 </div>
-                <div class="col-12 btn">
-                    <label for="file" class="label-file">upload my picture</label>
-                    <input id="file" class="input-file" type="file">
+                <form action="index.php?action=generator&upload=true" method="post" enctype="multipart/form-data" id="formUpload">
+                    <div class="col-12 btn">
+                        <label for="file" class="label-file">upload my picture</label>
+                        <input id="file" name="uploadImage" class="input-file" type="file">
+                        <input type="submit" name="uploadSubmit" class="">
 
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="wrap-slide-btn col-11 col-md-5 offset-md-1">
