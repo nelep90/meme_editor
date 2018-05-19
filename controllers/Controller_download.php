@@ -24,8 +24,8 @@ class Controller_download extends Controller{
 										$memeData['textColor2']);
 
 		$idImage = $memeData['id'];
-		$testJpg = "/\.jpg$/";
-		$testPng = "/\.png$/";
+		$testJpg = "/^(.*)(\.jpg|\.jpeg)$/";
+		$testPng = "/^(.*)(\.png)$/";
 		if (preg_match($testJpg, $memeData['url'])){
 			$newMemeName = $memeGen->generateMemeFromJPG();
 		} elseif (preg_match($testPng, $memeData['url'])){
@@ -38,9 +38,9 @@ class Controller_download extends Controller{
 
 	}
 	public function action_render($idMeme){
-		echo "On y est!!";
+		
 		$memeToLayout = $this->memeDb->read($idMeme);
-		var_dump($memeToLayout);
+	
 		echo $this->twig->render('validation.html', array('meme' => $memeToLayout));
 
 	}
