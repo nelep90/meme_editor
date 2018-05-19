@@ -43,26 +43,32 @@ if (isset($_GET['action'])){
         break;
         case 'download':
         require_once('controllers/Controller_download.php');
-
+        if(!isset($_POST['textSize1'])) { $_POST['textSize1'] = 'medium';}
+        if(!isset($_POST['textSize2'])) { $_POST['textSize2'] = 'medium';}
         if ((isset($_POST['topText'])) 
             && (isset($_POST['bottomText'])) 
                 && (isset($_POST['textColor1'])) 
-                    && (isset($_POST['textSize']))
+                    && (isset($_POST['textSize1']))
                         && (isset($_POST['url']))
                             && (isset($_POST['textColor2']))
-                                && (isset($_POST['id'])))
+                                && (isset($_POST['id']))
+                                    && (isset($_POST['textSize2'])))
         {
             
-            $memeData = [ 'topText' => $_POST['topText'],
-                            'bottomText' => $_POST['bottomText'],
+            $memeData = [ 'topText' => Secure::html($_POST['topText']),
+                            'bottomText' => Secure::html($_POST['bottomText']),
                             'textColor1' => $_POST['textColor1'],
                             'textColor2' => $_POST['textColor2'],
-                            'textSize' => $_POST['textSize'],
-                            'url' => $_POST['url'],
+                            'textSize' => $_POST['textSize1'],
+                            'textSize2' => $_POST['textSize2'],
+                            'url' => Secure::html($_POST['url']),
                             'id' => $_POST['id']];
+                            
             $action = new Controller_download($memeData);
             $action->genereAndDownload();
+
         } elseif ((isset($_GET['memeId'])) && (isset($_GET['memeName']))){
+
             $action = new Controller_download();
             $action->action_download($_GET['memeName']);
             $action->action_render($_GET['memeId']);

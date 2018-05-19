@@ -13,21 +13,25 @@ class Controller_download extends Controller{
 	}
 	// @param array $memeData: topText, bottomText, textColor, textSize, url, id 
 	public function genereAndDownload(){
+
 		// constructeur attend : $id, $url, $topText, $bottomText, $fontSize, $textColor1, $textColor2
-		$memeData = $this->memeData;
+		$memeData = $this->memeData;	
 		$memeGen = new MemeGenerator(	$memeData['id'],
 										$memeData['url'],
 										$memeData['topText'],
 										$memeData['bottomText'],
 										$memeData['textSize'],
+										$memeData['textSize2'],
 										$memeData['textColor1'],
 										$memeData['textColor2']);
-
+		
 		$idImage = $memeData['id'];
 		$testJpg = "/^(.*)(\.jpg|\.jpeg)$/";
 		$testPng = "/^(.*)(\.png)$/";
 		if (preg_match($testJpg, $memeData['url'])){
+			
 			$newMemeName = $memeGen->generateMemeFromJPG();
+			
 		} elseif (preg_match($testPng, $memeData['url'])){
 			$newMemeName = $memeGen->generateMemeFromPNG();
 		}

@@ -5,45 +5,54 @@ class MemeGenerator{
     protected $topText;
     protected $bottomText;
     protected $fontSize;
+    protected $fontSize2;
     protected $imageName;
     protected $textColor1;
     protected $textColor2;
     protected $id;
+    const SMALL_FONT = 10;
+    const MEDIUM_FONT = 30;
+    const LARGE_FONT = 50;
 
-    public function __construct($id, $url, $topText, $bottomText, $fontSize, $textColor1, $textColor2){
+    public function __construct($id, $url, $topText, $bottomText, $fontSize, $fontSize2, $textColor1, $textColor2){
         $this->id = $id;
         $this->image = $_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/upload/". $url;
         $this->topText = strtoupper($topText);
-        $this->bottomText = strtoupper($bottomText); 
-        $this->fontSize = (int)$fontSize;
+        $this->bottomText = strtoupper($bottomText);
+        $this->fontSize = $this->normalizeFontSize($fontSize);
+        $this->fontSize2 = $this->normalizeFontSize($fontSize2);
         $this->imageName = $url;
-        $this->textColor1 = $textColor1;
-        $this->textColor2 = $textColor2;
+        $this->textColor1 = $this->toRGB($textColor1);
+        $this->textColor2 = $this->toRGB($textColor2);
+        
     }
     public function generateMemeFromJPG()
     { 
         $img=imagecreatefromjpeg($this->image);
         $img=$this->resize($img);
         putenv('GDFONTPATH=' . realpath('.' . '/assets/font/'));
-        $textcolor = imagecolorallocate($img, 255, 255, 255);
+        $textcolor = imagecolorallocate($img, $this->textColor1[0], $this->textColor1[1], $this->textColor1[2]);
 
         if (strlen($this->topText) > 0){
             $bbox = imagettfbbox($this->fontSize, 0, 'Lato-Bold', $this->topText);
             $topTextSize = $bbox[2] - $bbox[0];
+            $topTextHeight = $bbox[1] - $bbox[7];
             $imageWidth = imagesx($img);
-
+    
             $xTopText = $imageWidth / 2 - $topTextSize / 2;
-            imagettftext($img, $this->fontSize, 0, $xTopText, 50, $textcolor, 'Lato-Bold', $this->topText);
+            $yTopText = $topTextHeight + 20;
+            imagettftext($img, $this->fontSize, 0, $xTopText, $yTopText, $textcolor, 'Lato-Bold', $this->topText);
         }
         if (strlen($this->bottomText) > 0){
-            $bbox = imagettfbbox($this->fontSize, 0, 'Lato-Bold', $this->bottomText);
+            $bbox = imagettfbbox($this->fontSize2, 0, 'Lato-Bold', $this->bottomText);
+            $bottomTextcolor = imagecolorallocate($img, $this->textColor2[0], $this->textColor2[1], $this->textColor2[2]);
             $bottomTextSize = $bbox[2] - $bbox[0];
-            $bottomTextHeight = $bbox[1] - $bbox[6];
+            $bottomTextHeight = $bbox[1] - $bbox[7];
             $imageWidth = imagesx($img);
             $imageHeight = imagesy($img);
             $xBottomText = $imageWidth / 2 - $bottomTextSize / 2;
-            $yBottomText = $imageHeight - $bottomTextHeight - 20;
-            imagettftext($img, $this->fontSize, 0, $xBottomText, $yBottomText, $textcolor, 'Lato-Bold', $this->bottomText);
+            $yBottomText = $imageHeight - 20;
+            imagettftext($img, $this->fontSize2, 0, $xBottomText, $yBottomText, $bottomTextcolor, 'Lato-Bold', $this->bottomText);
         }
         if ((strlen($this->topText) > 0) || (strlen($this->bottomText) > 0)){
             if (!file_exists($_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/meme/meme_" . $this->imageName)){
@@ -129,7 +138,32 @@ class MemeGenerator{
        
 
     }
-
+    private function normalizeFontSize($fontSize){
+        switch ($fontSize) {
+            case 'small':
+                return self::SMALL_FONT;
+                break;
+            case 'medium':
+                return self::MEDIUM_FONT;
+                break;
+            case 'large':
+                return self::LARGE_FONT;
+            break;
+            default:
+                return self::MEDIUM_FONT;
+                break;
+        }
+    }
+    private function toRGB($hex) {
+        if (strlen($hex)==7) { //enlever #
+            $hex=substr($hex, 1);
+        }
  
+        $rgb=array();
+        $rgb[]=(int)hexdec(substr($hex,0,2));
+        $rgb[]=(int)hexdec(substr($hex,2,2));
+        $rgb[]=(int)hexdec(substr($hex,4,2));
+        return $rgb;
+    }
 
 } 

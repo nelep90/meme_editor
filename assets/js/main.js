@@ -55,10 +55,12 @@ function startup1() {
   
 }
 function updateFirst1(event) {
-//   var data1 = document.getElementById('data-1');
-
+  // var data1 = document.getElementById('data-1');
+  console.log(event.target.value);
+  color1.value = event.target.value;
   if (data1) {
     data1.style.color = event.target.value;
+    console.log(event.target.value);
   }
 }
 
