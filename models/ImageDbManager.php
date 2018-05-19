@@ -39,8 +39,8 @@ class ImageDbManager {
 			return false;
 		}
 	}
-	public function listByDate(){
-		$req = $this->_db->prepare('SELECT * FROM ' . $this->_table . ' ORDER BY date_ajout DESC');
+	public function listByDate($limit = ""){
+		$req = $this->_db->prepare('SELECT * FROM ' . $this->_table . ' ORDER BY date_ajout DESC' . $limit);
 		$req->execute();
 		return $req->fetchAll(PDO::FETCH_ASSOC);
 	}

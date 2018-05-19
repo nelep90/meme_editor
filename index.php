@@ -18,7 +18,10 @@ if (isset($_GET['action'])){
     //routeur
         // Page d'accueil
         case 'home':
-        require_once('controllers/control_home.php');
+        require_once('controllers/Controller_home.php');
+        $action = new Controller_home();
+        $action->action_layout();
+
         break;
         // Page Générateur de Meme
         case 'generator':
@@ -79,8 +82,8 @@ if (isset($_GET['action'])){
     
     }
 } else {
-    require_once('controllers/Controller_generator.php');
-    $action = new Controller_generator();
+    require_once('controllers/Controller_home.php');
+    $action = new Controller_home();
     $action->action_layout();
 }
 
