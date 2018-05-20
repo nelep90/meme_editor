@@ -1,5 +1,5 @@
 <?php
-class Secure{
+abstract class Secure{
 
 	public static function html($string){
 		$tratement = utf8_encode($string);
