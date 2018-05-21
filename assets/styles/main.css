@@ -109,22 +109,34 @@ header {
   .wrap-meme h1 .pink {
     color: #bf1e36;
     text-transform: uppercase; }
-.wrap-meme .btn .label-file {
-  cursor: pointer;
-  color: #ffffff;
-  margin: 25px auto;
-  padding: 7px 60px;
-  text-transform: uppercase;
-  color: #ffffff;
-  background-color: #121d2c;
-  border-radius: 20px;
-  border: none;
-  font-family: 'Lato-R';
-  font-size: 18px; }
-.wrap-meme .btn .label-file:hover {
-  color: #ffffff; }
-.wrap-meme .btn .input-file {
-  display: none; }
+.wrap-meme .btn {
+  display: flex;
+  justify-content: center; }
+  .wrap-meme .btn .input-file {
+    cursor: pointer;
+    color: #ffffff;
+    margin: 25px auto;
+    padding: 5px 20px;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #121d2c;
+    border-radius: 20px;
+    border: none;
+    font-family: 'Lato-R';
+    font-size: 18px;
+    margin-top: 0; }
+  .wrap-meme .btn .label-file {
+    cursor: pointer;
+    color: #121d2c;
+    font-family: 'Lato-R';
+    font-size: 15px;
+    margin: 25px auto;
+    padding: 5px 20px;
+    margin-bottom: 0; }
+  .wrap-meme .btn .label-file:hover {
+    color: #121d2c; }
+  .wrap-meme .btn .input-file-hide {
+    display: none; }
 .wrap-meme .picture-meme {
   position: relative; }
   .wrap-meme .picture-meme #data-1 {
@@ -253,6 +265,8 @@ header {
 @media (min-width: 999px) {
   .wrap-meme h1 {
     font-size: 25px; }
+  .wrap-meme .btn .label-file {
+    font-size: 18px; }
   .wrap-meme .owl-carousel .owl-nav .owl-prev {
     position: absolute;
     left: -30px;
@@ -272,6 +286,11 @@ header {
     position: absolute;
     right: -30px;
     top: 0; } }
+@media (min-width: 576px) {
+  .wrap-meme .btn .label-file {
+    margin-bottom: 25px; }
+  .wrap-meme .btn .input-file {
+    margin-top: 25px; } }
 .wrap-download h1 {
   color: #121d2c;
   text-align: center;

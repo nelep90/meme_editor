@@ -83,15 +83,15 @@ function updateFirst2(event) {
 function changeSize(){
 
   var select1 = document.getElementById("select-1").value;
-  if(select1 == "value1")
+  if(select1 == "medium")
         {
               data1.style.fontSize="30pt";
         }
-        if(select1 == "value2")
+        if(select1 == "small")
         {
               data1.style.fontSize="10pt";
         }
-        if(select1 == "value3")
+        if(select1 == "large")
         {
               data1.style.fontSize="50pt";
         }
@@ -100,15 +100,15 @@ function changeSize(){
 function changeSize2(){
 
   var select2 = document.getElementById("select-2").value;
-  if(select2 == "value1")
+  if(select2 == "medium")
         {
               data2.style.fontSize="30pt";
         }
-        if(select2 == "value2")
+        if(select2 == "small")
         {
               data2.style.fontSize="10pt";
         }
-        if(select2 == "value3")
+        if(select2 == "large")
         {
               data2.style.fontSize="50pt";
         }

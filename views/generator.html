@@ -20,12 +20,15 @@
 
 
                 </div>
-                <form action="index.php?action=generator&upload=true" method="post" enctype="multipart/form-data" id="formUpload">
-                    <div class="col-12 btn">
-                        <label for="file" class="label-file">upload my picture</label>
-                        <input id="file" name="uploadImage" class="input-file" type="file">
-                        <input type="submit" name="uploadSubmit" class="">
-
+                <form action="index.php?action=generator&upload=true" method="post" enctype="multipart/form-data" id="formUpload" class="col-12">
+                    <div class="btn row">
+                        <div class="col-12 col-sm-6">
+                        <label for="file" class="label-file" >Je choisis mon fichier</label>
+                        <input id="file" name="uploadImage" class="input-file-hide" type="file">
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <input type="submit" name="uploadSubmit" class="input-file" value="upload">
+                    </div>
                     </div>
                 </form>
             </div>

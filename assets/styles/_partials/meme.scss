@@ -12,11 +12,12 @@
         }
     }
     .btn {
-        .label-file {
+display : flex;
+justify-content : center;        .input-file {
             cursor: pointer;
             color: $white;
             margin: 25px auto;
-            padding: 7px 60px;
+            padding: 5px 20px;
             text-transform: uppercase;
             color: $white;
             background-color: $blue;
@@ -24,11 +25,23 @@
             border: none;
             font-family: 'Lato-R';
             font-size: 18px;
+            margin-top : 0;
+        }
+
+        .label-file{
+            cursor : pointer;
+            color : $blue;
+            font-family: 'Lato-R';
+            font-size : 15px;
+            margin: 25px auto;
+            padding: 5px 20px;
+            margin-bottom : 0;
+            
         }
         .label-file:hover {
-            color: $white;
+            color: $blue;
         } // et on masque le input
-        .input-file {
+        .input-file-hide {
             display: none;
         }
     }
@@ -192,6 +205,11 @@
         h1 {
             font-size: 25px;
         }
+        .btn{
+            .label-file{
+            font-size : 18px;
+            }
+        }
         .owl-carousel {
             .owl-nav {
                 .owl-prev {
@@ -214,6 +232,7 @@
         h1 {
             font-size: 25px;
         }
+        
         .owl-carousel {
             .owl-nav {
                 .owl-prev {
@@ -229,4 +248,17 @@
             }
         }
     }
+}
+
+@media (min-width: 576px) {
+.wrap-meme{
+    .btn{
+        .label-file{
+            margin-bottom: 25px;
+        }
+        .input-file{
+            margin-top: 25px;
+        }
+    }
+}
 }
