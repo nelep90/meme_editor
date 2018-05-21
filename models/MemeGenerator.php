@@ -13,6 +13,7 @@ class MemeGenerator{
     protected $fontTypes;// tableau des fonts disponibles
     protected $fontType1;// font sélectionnée top
     protected $fontType2;// font sélectionnée bot
+    private $watermark;
     const SMALL_FONT = 10;
     const MEDIUM_FONT = 30;// taille police en pt
     const LARGE_FONT = 50;
@@ -34,12 +35,15 @@ class MemeGenerator{
         $this->fontTypes = array('font1' => 'Lato-Bold');
         $this->fontType1 = 'font1';
         $this->fontType2 = 'font1';
+        $this->watermark = realpath('.' . '/assets/medias/watermark.png');
     }
     public function generateMemeFromJPG()
     { 
         $img=imagecreatefromjpeg($this->image);
         // image max width 600;
         $img=$this->resize($img);
+        // ajout watermark
+        $this->add_watermark($img);
         putenv('GDFONTPATH=' . realpath('.' . '/assets/font/'));        
         // traitement topText
         if (strlen($this->topText) > 0){
@@ -193,6 +197,23 @@ class MemeGenerator{
                 return 'meme_' . $memeName;
             }             
         }                    
+    }
+    private function add_watermark($img){
+        $marginRight = 2;
+        $marginBottom = 2;
+        $watermark = imagecreatefrompng($this->watermark);
+        $watermarkWidth = imagesx($watermark);
+        $watermarkHeight = imagesy($watermark);
+        imagecopy(
+            $img,
+            $watermark,
+            imagesx($img) - $watermarkWidth - $marginRight,
+            imagesy($img) - $watermarkHeight - $marginBottom,
+            0,
+            0,
+            imagesx($watermark),
+            imagesy($watermark)
+        );
     }
     // recursive Rules!!!!!
     public function findValidName($number){
