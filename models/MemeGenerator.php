@@ -45,6 +45,7 @@ class MemeGenerator{
         if (strlen($this->topText) > 0){
             // couleur texte top
             $topTextColor = $this->set_textColor($img, $this->textColor1);
+            // split du text pour retour à ligne
             $textWrap = $this->textWrap($img, $this->fontSize, $this->fontTypes[$this->fontType1], $this->topText);
             for ($i = 1; $i <= count($textWrap); $i++) {
                 // calcule des tailles retourne tableau ['textWidth' => $textWidth, 'textHeight' => $textHeight, 'imageWidth' => $imageWidth, 'imageHeight' => $imageHeight]
@@ -58,6 +59,7 @@ class MemeGenerator{
         if (strlen($this->bottomText) > 0){
             // couleur bottom texte
             $bottomTextColor = $this->set_textColor($img, $this->textColor2);
+            // split du text pour retour à ligne
             $bottomTextWrap = $this->textWrap($img, $this->fontSize2, $this->fontTypes[$this->fontType2], $this->bottomText);
             for ($i = 1; $i <= count($bottomTextWrap); $i++) {
                 // calcule des tailles retourne tableau ['textWidth' => $textWidth, 'textHeight' => $textHeight, 'imageWidth' => $imageWidth, 'imageHeight' => $imageHeight]
@@ -71,15 +73,13 @@ class MemeGenerator{
         if ((strlen($this->topText) > 0) || (strlen($this->bottomText) > 0)){
             // si le nom du meme n'existe pas
             if (!file_exists($_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/meme/meme_" . $this->imageName)){
-                imagejpeg($img, $_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/meme/meme_" . $this->imageName);
-        
+                imagejpeg($img, $_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/meme/meme_" . $this->imageName);        
                 imagedestroy($img);
                 return 'meme_' . $this->imageName;
             // sinon trouver un autre nom
             } else {
                 $memeName = $this->findValidName(1);
-                imagejpeg($img, $_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/meme/meme_" . $memeName);
-        
+                imagejpeg($img, $_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/meme/meme_" . $memeName);        
                 imagedestroy($img);
                 return 'meme_' . $memeName;
             }            
@@ -152,42 +152,47 @@ class MemeGenerator{
         $img=imagecreatefrompng($this->image);
         $img=$this->resize($img);
         putenv('GDFONTPATH=' . realpath('.' . '/assets/font/'));
-        $textcolor = imagecolorallocate($img, 255, 255, 255);
-
+        // traitement topText
         if (strlen($this->topText) > 0){
-            $bbox = imagettfbbox($this->fontSize, 0, 'Lato-Bold', $this->topText);
-            $topTextSize = $bbox[2] - $bbox[0];
-            $imageWidth = imagesx($img);
-
-            $xTopText = $imageWidth / 2 - $topTextSize / 2;
-            imagettftext($img, $this->fontSize, 0, $xTopText, 50, $textcolor, 'Lato-Bold', $this->topText);
-        }
+            // couleur texte top
+            $topTextColor = $this->set_textColor($img, $this->textColor1);
+            // split du text pour retour à ligne
+            $textWrap = $this->textWrap($img, $this->fontSize, $this->fontTypes[$this->fontType1], $this->topText);
+            for ($i = 1; $i <= count($textWrap); $i++) {
+                // calcule des tailles retourne tableau ['textWidth' => $textWidth, 'textHeight' => $textHeight, 'imageWidth' => $imageWidth, 'imageHeight' => $imageHeight]
+                $topTextSizes = $this->computeTextSize($img, $this->fontSize, $this->fontTypes[$this->fontType1], $textWrap[$i - 1]);
+                $topTextSizes['textHeight'] = ($topTextSizes['textHeight'] * $i) + (($i - 1) * self::TEXT_MARGIN_TOP);
+                // insertion du texte dans l'image
+                $topTextInsert = $this->add_top_text($img, $topTextSizes, $topTextColor, $this->fontTypes[$this->fontType1], $this->fontSize, $textWrap[$i - 1]);
+            }
+        }        
+        // traitement bottomText
         if (strlen($this->bottomText) > 0){
-            $bbox = imagettfbbox($this->fontSize, 0, 'Lato-Bold', $this->bottomText);
-            $bottomTextSize = $bbox[2] - $bbox[0];
-            $bottomTextHeight = $bbox[1] - $bbox[6];
-            $imageWidth = imagesx($img);
-            $imageHeight = imagesy($img);
-            $xBottomText = $imageWidth / 2 - $bottomTextSize / 2;
-            $yBottomText = $imageHeight - $bottomTextHeight - 20;
-            imagettftext($img, $this->fontSize, 0, $xBottomText, $yBottomText, $textcolor, 'Lato-Bold', $this->bottomText);
+            // couleur bottom texte
+            $bottomTextColor = $this->set_textColor($img, $this->textColor2);
+            // split du text pour retour à ligne
+            $bottomTextWrap = $this->textWrap($img, $this->fontSize2, $this->fontTypes[$this->fontType2], $this->bottomText);
+            for ($i = 1; $i <= count($bottomTextWrap); $i++) {
+                // calcule des tailles retourne tableau ['textWidth' => $textWidth, 'textHeight' => $textHeight, 'imageWidth' => $imageWidth, 'imageHeight' => $imageHeight]
+                $bottomTextSizes = $this->computeTextSize($img, $this->fontSize2, $this->fontTypes[$this->fontType2], $bottomTextWrap[$i - 1]);
+                $bottomTextSizes['textHeight'] = (count($bottomTextWrap) - $i) * ($bottomTextSizes['textHeight'] + self::TEXT_MARGIN_BOTTOM);
+                // insertion du texte dans l'image
+                $topTextInsert = $this->add_bottom_text($img, $bottomTextSizes, $bottomTextColor, $this->fontTypes[$this->fontType2], $this->fontSize2, $bottomTextWrap[$i - 1]);
+            }
         }
+        // si il y a du texte en haut ou en bas
         if ((strlen($this->topText) > 0) || (strlen($this->bottomText) > 0)){
             if (!file_exists($_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/meme/meme_" . $this->imageName)){
-                imagepng($img, $_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/meme/meme_" . $this->imageName);
-        
+                imagepng($img, $_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/meme/meme_" . $this->imageName);       
                 imagedestroy($img);
                 return 'meme_' . $this->imageName;
             } else {
                 $memeName = $this->findValidName(1);
-                imagepng($img, $_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/meme/meme_" . $memeName);
-        
+                imagepng($img, $_SERVER["DOCUMENT_ROOT"] . "/meme_editor/assets/img/meme/meme_" . $memeName);        
                 imagedestroy($img);
                 return 'meme_' . $memeName;
-            }
-             
-        }
-                     
+            }             
+        }                    
     }
     // recursive Rules!!!!!
     public function findValidName($number){
@@ -211,9 +216,6 @@ class MemeGenerator{
        else{
            return $img;
        }
-
-       
-
     }
     private function normalizeFontSize($fontSize){
         switch ($fontSize) {
@@ -234,13 +236,11 @@ class MemeGenerator{
     private function toRGB($hex) {
         if (strlen($hex)==7) { //enlever #
             $hex=substr($hex, 1);
-        }
- 
+        } 
         $rgb=array();
         $rgb[]=(int)hexdec(substr($hex,0,2));
         $rgb[]=(int)hexdec(substr($hex,2,2));
         $rgb[]=(int)hexdec(substr($hex,4,2));
         return $rgb;
     }
-
 } 
