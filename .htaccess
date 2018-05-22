@@ -1,0 +1,36 @@
+#--------------------------------------------------
+# Répertoire : /Site/
+#--------------------------------------------------
+
+
+# Activation du module de réécriture d'URL :
+RewriteEngine On
+
+
+# RewriteRule ^affiche/([0-9]+).html   index.php?action=affiche [L]
+
+
+RewriteRule ^(affiche)/([0-9]+)$ index.php?action=$1&id=$2 [L]
+
+RewriteRule ^(fiche-film)/([0-9]+)$ index.php?action=$1&id=$2 [L]
+
+RewriteRule ^(fiche-real)/([0-9]+)$ index.php?action=$1&id=$2 [L]
+
+#--------------------------------------------------
+
+#id=$1
+#Indique que la variable nommée id prendra la valeur située dans la première paire de parenthèses.
+
+#--------------------
+
+#rubrique=$2
+#Indique que la variable nommée rubrique prendra la valeur située dans la deuxième paire de parenthèses.
+
+#--------------------------------------------------
+
+#RewriteRule ^select-affiche/$ index.php [L,QSA]
+#RewriteRule ^select-movie/([0-9]+)$ index.php?id=$1 [L,QSA]
+
+#--------------------------------------------------
+#                 /Kiss/
+#-------------------------------------------------- 
