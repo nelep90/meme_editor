@@ -79,7 +79,7 @@ if (isset($_GET['action'])){
                 // route vers affichage avant download sans generate
         } elseif (isset($_GET['id'])){
             $action = new Controller_download();
-            $action = action_render($_GET['id']);
+            $action -> action_render($_GET['id']);
             // index.php?action=download&id={{ post.id }}
         }
         break;
