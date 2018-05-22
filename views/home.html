@@ -22,7 +22,7 @@
             </div>
             {% for post in posts %}
             <div class="item-meme col-12 col-md-4">
-                <a class="link-img">
+                <a class="link-img" href="index.php?action=download&memeId={{ post.id }}&memeName={{ post.url }}">
                     <img src="assets/img/meme/{{ post.url }}">
 
                     <div class="content-hover">
