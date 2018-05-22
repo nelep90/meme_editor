@@ -57,7 +57,8 @@ header {
     opacity: 0.7;
     display: block;
     width: 100%;
-    height: auto;
+    height: 300px;
+    object-fit: contain;
     transition: .5s ease;
     backface-visibility: hidden; }
     .wrap-home .wrap-content .item-meme .link-img img:hover {

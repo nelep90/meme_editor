@@ -34,7 +34,8 @@
                     opacity: 0.7;
                     display: block;
                     width: 100%;
-                    height: auto;
+                    height: 300px;
+                    object-fit: contain;
                     transition: .5s ease;
                     backface-visibility: hidden;
                     &:hover {
@@ -69,39 +70,29 @@
     }
 }
 
-
-@media (min-width: 768px) { 
-
-
+@media (min-width: 768px) {
     .wrap-home {
         .background-home {
             background-position: center;
             padding: 100px 0;
             h1 {
                 font-size: 26px;
-
             }
             h2 {
-
                 font-size: 25px;
             }
         }
     }
-    
- }
+}
 
-@media (min-width: 999px) { 
-
+@media (min-width: 999px) {
     .wrap-home {
         .background-home {
-
             padding: 150px 0;
             h1 {
                 font-size: 36px;
-
             }
             h2 {
-
                 font-size: 38px;
             }
         }
